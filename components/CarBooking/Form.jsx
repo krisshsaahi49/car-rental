@@ -4,8 +4,10 @@ import { useUser } from "@clerk/nextjs";
 import React, { useContext, useEffect, useState } from "react";
 
 function Form({ car }) {
-    const {user} = useUser();
-    console.log(user.username)
+    const { isSignedIn, user, isLoaded } = useUser();
+    if (!isLoaded) {
+      return null;
+    }
     const [storeLocation, setStoreLocation] = useState([]);
     const { showToastMsg, setShowToastMsg } = useContext(BookCreatedFlagContext)
     const [formValue, setFormValue] = useState({
