@@ -6,7 +6,7 @@ import React, { useContext, useEffect, useState } from "react";
 function Form({ car }) {
     const { isSignedIn, user, isLoaded } = useUser();
     if (!isLoaded) {
-      return null;
+        return null;
     }
     const [storeLocation, setStoreLocation] = useState([]);
     const { showToastMsg, setShowToastMsg } = useContext(BookCreatedFlagContext)
