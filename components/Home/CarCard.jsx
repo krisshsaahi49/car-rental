@@ -7,9 +7,14 @@ import { PiSteeringWheelFill } from "react-icons/pi";
 
 function CarCard(props) {
 
-    const [car, setCar] = useState(props.car)
+    const [car, setCar] = useState();
+    useEffect(()=>{
+        if(props.car){
+            setCar(props.car); 
+        }
+    },[props.car])
 
-    return (
+    return car&&(
         <div
             className='group bg-gray-50 p-2 sm:p-5 rounded-3xl m-1 sm:m-5
 hover:bg-white 
