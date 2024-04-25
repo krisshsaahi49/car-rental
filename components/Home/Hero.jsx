@@ -14,7 +14,7 @@ function Hero() {
                 </h2>
                 <button className='p-2 mt-5 bg-blue-500 text-white
                 px-4 rounded-full 
-                hover:scale-105 transition-all'>Explore Cars</button>
+                hover:scale-105 transition-all'><a href="#cars-catalog">Explore Cars</a></button>
             </div>
             <div>
                 <Image src='/5.png'
