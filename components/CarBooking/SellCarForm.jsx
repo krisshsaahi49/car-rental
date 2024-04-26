@@ -3,14 +3,17 @@ import { createSellCar } from '@/api';
 import ToastMsg from '@/components/ToastMsg'
 
 function SellCarForm() {
+    const today = new Date();
     const [showToastMsg, setShowToastMsg] = useState(false);
     const [formData, setFormData] = useState({
         make: '',
         model: '',
-        year: '', 
-        mileage: '', 
+        year: '',
+        mileage: '',
         condition: '',
-        price:'',
+        price: '',
+        appointment: '',
+        image: ''
     });
 
     const handleChange = (e) => {
@@ -21,6 +24,14 @@ function SellCarForm() {
         });
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setFormData({
+            ...formData,
+            image: file,
+        });
+    };
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -36,6 +47,8 @@ function SellCarForm() {
                     year: '',
                     mileage: '',
                     condition: '',
+                    appointment: '',
+                    image: '',
                 });
                 // Show toast message
                 setShowToastMsg(true);
@@ -121,6 +134,27 @@ function SellCarForm() {
                             name="price"
                             value={formData.price}
                             onChange={handleChange}
+                            className="input input-bordered"
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <label className="text-gray-600">Schedule Appointment</label>
+                        <input
+                            type="datetime-local"
+                            min={today}
+                            onChange={handleChange}
+                            value={formData.appointment}
+                            placeholder="Type here"
+                            name="appointment"
+                            className="input input-bordered w-full max-w-lg"
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <label className="text-gray-600">Upload Image</label>
+                        <input
+                            type="file"
+                            onChange={handleImageChange}
+                            name="image"
                             className="input input-bordered"
                         />
                     </div>
