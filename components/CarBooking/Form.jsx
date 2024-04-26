@@ -17,7 +17,7 @@ function Form({ car }) {
         pickUpTime: '',
         dropOffTime: '',
         contactNumber: '',
-        userName: user.username,
+        userName: user?.username||'',
         carId: ""
     })
 

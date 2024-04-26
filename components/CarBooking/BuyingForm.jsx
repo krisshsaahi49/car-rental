@@ -14,7 +14,7 @@ function BuyingForm({ car }) {
     const [formValue, setFormValue] = useState({
         address: '',
         mobile: '',
-        userName: user.username,
+        userName: user?.username||'',
         email: '', 
     });
 
