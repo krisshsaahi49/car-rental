@@ -7,6 +7,7 @@ import ToastMsg from '@/components/ToastMsg'
 import { useEffect, useState } from 'react';
 import { getCarsList } from '@/api'
 import { BookCreatedFlagContext } from "@/context/BookCreatedFlagContext";
+import SellCarsPage from '@/components/Home/SellCarsPage'
 
 export default function Home() {
   const [carsList, setCarsList] = useState<any>([])
@@ -49,6 +50,7 @@ export default function Home() {
           orderCarList={(value: String) => orderCarList(value)}
           setBrand={(value: String) => filterCarList(value)} />
         <CarsList carsList={carsList} />
+        <SellCarsPage />
         {showToastMsg ? <ToastMsg msg={'Booking Created Successfully!'} /> : null}
       </BookCreatedFlagContext.Provider>
     </div>

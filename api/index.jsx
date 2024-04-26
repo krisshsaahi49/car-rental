@@ -26,42 +26,42 @@ export const getCarsList = async () => {
     return result;
 }
 
-export const getStoreLocations=async()=>{
-    const query=gql`
+export const getStoreLocations = async () => {
+    const query = gql`
     query storeLocation {
       storesLocations {
         address
       }
     }  
     `
-    const result=await request(MASTER_URL,query);
+    const result = await request(MASTER_URL, query);
     return result;
-  }
-  
-  
-  export const createBooking=async(formValue)=>{
-    const mutationQuery=gql`
+}
+
+
+export const createBooking = async (formValue) => {
+    const mutationQuery = gql`
     mutation MyMutation {
       createBooking(
-        data:  {userName: "`+formValue.userName+`", 
-        pickUpDate: "`+formValue.pickUpDate+`", 
-        pickUpTime: "`+formValue.pickUpTime+`", 
-        dropOffDate: "`+formValue.dropOffDate+`", 
-        dropOffTime: "`+formValue.dropOffTime+`", 
-        contactNumber: "`+formValue.contactNumber+`", 
+        data:  {userName: "`+ formValue.userName + `", 
+        pickUpDate: "`+ formValue.pickUpDate + `", 
+        pickUpTime: "`+ formValue.pickUpTime + `", 
+        dropOffDate: "`+ formValue.dropOffDate + `", 
+        dropOffTime: "`+ formValue.dropOffTime + `", 
+        contactNumber: "`+ formValue.contactNumber + `", 
         carId: {connect: 
-          {id: "`+formValue.carId+`"}}}
+          {id: "`+ formValue.carId + `"}}}
       ) {
         id
       }
     }
     `
-  
-    const result=await request(MASTER_URL,mutationQuery);
-    return result;
-  }
 
-  export const createBuynow = async (formValue) => {
+    const result = await request(MASTER_URL, mutationQuery);
+    return result;
+}
+
+export const createBuynow = async (formValue) => {
     const mutationQuery = gql`
         mutation MyMutation {
             createBuynow(
@@ -75,6 +75,27 @@ export const getStoreLocations=async()=>{
                 id
             }
         }
+    `;
+
+    const result = await request(MASTER_URL, mutationQuery);
+    return result;
+};
+
+export const createSellCar = async (formValue) => {
+    const mutationQuery = gql`
+    mutation MyMutation {
+        createSellCar(
+          data: {
+            condition: "${formValue.condition}", 
+            make: "${formValue.make}", 
+            mileage: ${formValue.mileage}, 
+            model: "${formValue.model}", 
+            price: ${formValue.price}, 
+            year: ${formValue.year}}
+        ) {
+          id
+        }
+      }
     `;
 
     const result = await request(MASTER_URL, mutationQuery);
