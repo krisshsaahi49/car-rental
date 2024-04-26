@@ -4,7 +4,7 @@ import React from 'react'
 function Hero() {
     return (
         <div className='grid grid-cols-1 
-        md:grid-cols-2'>
+        md:grid-cols-2 h-screen items-center justify-center'>
             <div>
 
                 <h2 className='text-[40px] md:text-[60px] 
