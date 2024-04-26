@@ -60,3 +60,23 @@ export const getStoreLocations=async()=>{
     const result=await request(MASTER_URL,mutationQuery);
     return result;
   }
+
+  export const createBuynow = async (formValue) => {
+    const mutationQuery = gql`
+        mutation MyMutation {
+            createBuynow(
+                data: {
+                    address: "${formValue.address}",
+                    mobile: "${formValue.mobile}",
+                    userName: "${formValue.userName}",
+                    email: "${formValue.email}"
+                }
+            ) {
+                id
+            }
+        }
+    `;
+
+    const result = await request(MASTER_URL, mutationQuery);
+    return result;
+};

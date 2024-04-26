@@ -48,7 +48,7 @@ border-blue-500 '>
                 </div>
             </div>
             <div className='flex space-x-4'>
-                <button className='hidden group-hover:flex bg-gradient-to-r
+                <button onClick={()=>{window.my_modal_4.showModal();}} className='hidden group-hover:flex bg-gradient-to-r
      from-blue-400 to-blue-700
     p-2 rounded-lg text-white w-2/4 px-5 justify-between'
                 >
@@ -62,7 +62,7 @@ border-blue-500 '>
 
                     </span></button>
 
-                <button className='hidden group-hover:flex bg-gradient-to-r
+                <button onClick={()=>{window.my_modal_5.showModal();}} className='hidden group-hover:flex bg-gradient-to-r
      from-blue-400 to-blue-700
     p-2 rounded-lg text-white w-2/4 px-5 justify-between'
                 >
