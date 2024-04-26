@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CarCard from './CarCard'
 import CarCardSkelton from './CarCardSkelton'
 import BookingModal from '../CarBooking/BookingModal'
+import BuyingModal from '../CarBooking/BuyingModal'
 
 function CarsList(props) {
     const [isLoaded,setIsLoaded]=useState(true)
@@ -19,7 +20,7 @@ function CarsList(props) {
         {/* <CarCardSkelton/> */}
         {!isLoaded&&props.carsList.map((car,index)=>(
             <div key={index} 
-            onClick={()=>{(window).my_modal_4.showModal();
+            onClick={()=>{
               setSelectedCar(car)}}>
                 <CarCard car={car} />
             </div>
@@ -34,6 +35,10 @@ function CarsList(props) {
 
 <dialog id="my_modal_4" className="modal">
   <BookingModal car={selectedCar} />
+</dialog>
+
+<dialog id="my_modal_5" className="modal">
+  <BuyingModal car={selectedCar} />
 </dialog>
     </div>
   )
