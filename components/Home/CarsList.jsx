@@ -16,7 +16,7 @@ function CarsList(props) {
   return (
     <div className='grid grid-cols-2 
     md:grid-cols-3
-    lg:grid-cols-4'>
+    lg:grid-cols-4 border-b'>
         {/* <CarCardSkelton/> */}
         {!isLoaded&&props.carsList.map((car,index)=>(
             <div key={index} 

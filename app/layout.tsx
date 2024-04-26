@@ -25,7 +25,9 @@ export default function RootLayout({
             {children}
           </SignedIn>
           <SignedOut>
-            <SignIn />
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+              <SignIn />
+            </div>
           </SignedOut>
         </body>
       </html>
