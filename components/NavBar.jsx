@@ -17,7 +17,9 @@ function NavBar() {
         <Link href="#sell-cars" className='hover:bg-blue-500 p-2 px-3 cursor-pointer rounded-full hover:text-white'>
           Sell Your Car
         </Link>
-        <h2 className='hover:bg-blue-500 p-2 px-3 cursor-pointer rounded-full hover:text-white'>Contact Us</h2>
+        <Link href="#contact" className='hover:bg-blue-500 p-2 px-3 cursor-pointer rounded-full hover:text-white'>
+          Contact Us
+        </Link>
       </div>
       <UserButton />
     </div>

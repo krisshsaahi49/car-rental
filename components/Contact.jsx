@@ -2,12 +2,12 @@ import React from 'react'
 
 function Contact() {
     return (
-        <div className='border-t'>
+        <div id="contact" className='border-t'>
             <h2 id="sell-cars" className='text-[35px] font-bold mt-5'>Contact Us</h2>
             <h2 className='text-[20px] text-gray-500 pr-20 mt-5 mb-5 '>Feel free to reach out to us for any inquiries or assistance. Our dedicated team is here to make your selling experience smooth and hassle-free.</h2>
             <div class="flex items-center justify-center p-12">
                 <div class="mx-auto w-full max-w-[550px]">
-                    <form action="https://formbold.com/s/FORM_ID" method="POST">
+                    <form action="https://formbold.com/s/3OKbj" method="POST">
                         <div class="mb-5">
                             <label
                                 for="name"
