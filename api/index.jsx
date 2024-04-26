@@ -92,7 +92,8 @@ export const createSellCar = async (formValue) => {
             model: "${formValue.model}", 
             price: ${formValue.price}, 
             year: ${formValue.year},
-            appointment: "${formValue.appointment}"
+            appointment: "${formValue.appointment}",
+            image: {create: {fileName: "${formValue.image}"}}
           },
         ) {
           id
