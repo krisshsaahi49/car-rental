@@ -7,10 +7,10 @@ function SellCarForm() {
     const [formData, setFormData] = useState({
         make: '',
         model: '',
-        year: 0, // Set initial value to 0
-        mileage: 0, // Set initial value to 0
+        year: '', 
+        mileage: '', 
         condition: '',
-        price: 0, // Set initial value to 0
+        price:'',
     });
 
     const handleChange = (e) => {
@@ -56,7 +56,7 @@ function SellCarForm() {
 
     return (
         <div className='flex items-center justify-center'>
-            <div className="bg-gray-100 p-6 rounded-lg w-1/2">
+            <div className="bg-gray-100 p-6 rounded-lg w-1/3">
                 <div className="flex flex-col space-y-4">
                     <div className="flex flex-col">
                         <label className="text-gray-600">Make</label>
@@ -95,7 +95,7 @@ function SellCarForm() {
                         <label className="text-gray-600">Mileage</label>
                         <input
                             type="number"
-                            placeholder="Type here"
+                            placeholder="75000"
                             name="mileage"
                             value={formData.mileage}
                             onChange={handleChange}
@@ -117,7 +117,7 @@ function SellCarForm() {
                         <label className="text-gray-600">Price</label>
                         <input
                             type="number"
-                            placeholder="Type here"
+                            placeholder="12500"
                             name="price"
                             value={formData.price}
                             onChange={handleChange}
