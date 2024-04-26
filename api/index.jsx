@@ -2,7 +2,7 @@ import request, { gql } from "graphql-request";
 
 const MASTER_URL = "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clvf7einl0blh07usfqhar855/master";
 export const getCarsList = async () => {
-    const query = gql`
+  const query = gql`
     query CarLists {
         carLists {
           carAvg
@@ -22,25 +22,25 @@ export const getCarsList = async () => {
       }      
     `
 
-    const result = await request(MASTER_URL, query);
-    return result;
+  const result = await request(MASTER_URL, query);
+  return result;
 }
 
 export const getStoreLocations = async () => {
-    const query = gql`
+  const query = gql`
     query storeLocation {
       storesLocations {
         address
       }
     }  
     `
-    const result = await request(MASTER_URL, query);
-    return result;
+  const result = await request(MASTER_URL, query);
+  return result;
 }
 
 
 export const createBooking = async (formValue) => {
-    const mutationQuery = gql`
+  const mutationQuery = gql`
     mutation MyMutation {
       createBooking(
         data:  {userName: "`+ formValue.userName + `", 
@@ -57,12 +57,12 @@ export const createBooking = async (formValue) => {
     }
     `
 
-    const result = await request(MASTER_URL, mutationQuery);
-    return result;
+  const result = await request(MASTER_URL, mutationQuery);
+  return result;
 }
 
 export const createBuynow = async (formValue) => {
-    const mutationQuery = gql`
+  const mutationQuery = gql`
         mutation MyMutation {
             createBuynow(
                 data: {
@@ -77,12 +77,12 @@ export const createBuynow = async (formValue) => {
         }
     `;
 
-    const result = await request(MASTER_URL, mutationQuery);
-    return result;
+  const result = await request(MASTER_URL, mutationQuery);
+  return result;
 };
 
 export const createSellCar = async (formValue) => {
-    const mutationQuery = gql`
+  const mutationQuery = gql`
     mutation MyMutation {
         createSellCar(
           data: {
@@ -91,13 +91,15 @@ export const createSellCar = async (formValue) => {
             mileage: ${formValue.mileage}, 
             model: "${formValue.model}", 
             price: ${formValue.price}, 
-            year: ${formValue.year}}
+            year: ${formValue.year},
+            appointment: "${formValue.appointment}"
+          },
         ) {
           id
         }
       }
     `;
 
-    const result = await request(MASTER_URL, mutationQuery);
-    return result;
+  const result = await request(MASTER_URL, mutationQuery);
+  return result;
 };
