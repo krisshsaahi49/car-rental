@@ -4,7 +4,7 @@ import { useUser } from "@clerk/nextjs";
 import React, { useContext, useEffect, useState } from "react";
 
 function Form({ car }) {
-    const { isSignedIn, user, isLoaded } = useUser();
+    const { user, isLoaded } = useUser();
     if (!isLoaded) {
         return null;
     }
@@ -143,5 +143,8 @@ hover:bg-blue-800"
         </div>
     );
 }
+Form.propTypes = {
+    car: PropTypes.object.isRequired 
+};
 
 export default Form;

@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import CarCard from '../Home/CarCard'
 import BuyingForm from './BuyingForm'
 
@@ -23,5 +22,9 @@ function BuyingModal({car}) {
     </form>
   )
 }
+
+BuyingModal.propTypes = {
+  car: PropTypes.object.isRequired
+};
 
 export default BuyingModal
