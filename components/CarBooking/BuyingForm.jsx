@@ -1,22 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { gql } from 'graphql-request';
 import { createBuynow } from '@/api';
 import { BookCreatedFlagContext } from '@/context/BookCreatedFlagContext';
 import { useUser } from '@clerk/nextjs';
+import PropTypes from 'prop-types';
 
 function BuyingForm({ car }) {
-    const { isSignedIn, user, isLoaded } = useUser();
-    if (!isLoaded) {
-        return null;
-    }
-
+    const { user, isLoaded } = useUser();
     const { setShowToastMsg } = useContext(BookCreatedFlagContext);
+
     const [formValue, setFormValue] = useState({
         address: '',
         mobile: '',
-        userName: user?.username||'',
+        userName: '',
         email: '', 
     });
+
+    useEffect(() => {
+        if (isLoaded) {
+            setFormValue(prevFormValue => ({
+                ...prevFormValue,
+                userName: user?.username || '',
+            }));
+        }
+    }, [isLoaded, user]);
 
     const handleChange = (event) => {
         setFormValue({
@@ -37,7 +43,7 @@ function BuyingForm({ car }) {
     return (
         <div>
             <div className="flex flex-col w-full mb-5">
-                <label className="text-gray-400">Address</label>
+                <label className="text-gray-400" htmlFor='address'>Address</label>
                 <input
                     type="text"
                     placeholder="Type here"
@@ -47,7 +53,7 @@ function BuyingForm({ car }) {
                 />
             </div>
             <div className="flex flex-col w-full mb-5">
-                <label className="text-gray-400">Mobile</label>
+                <label className="text-gray-400" htmlFor='mobile'>Mobile</label>
                 <input
                     type="text"
                     placeholder="Type here"
@@ -57,7 +63,7 @@ function BuyingForm({ car }) {
                 />
             </div>
             <div className="flex flex-col w-full mb-5">
-                <label className="text-gray-400">Email</label>
+                <label className="text-gray-400" htmlFor='email'>Email</label>
                 <input
                     type="email"
                     placeholder="Type here"
@@ -81,5 +87,8 @@ function BuyingForm({ car }) {
     );
 }
 
-export default BuyingForm;
+BuyingForm.propTypes = {
+    car: PropTypes.object.isRequired
+};
 
+export default BuyingForm;
