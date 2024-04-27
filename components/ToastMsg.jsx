@@ -14,7 +14,7 @@ function ToastMsg({msg}) {
 }
 
 ToastMsg.propTypes = {
-  msg: PropTypes.object.isRequired
+  msg: PropTypes.string.isRequired
 }
 
 export default ToastMsg
