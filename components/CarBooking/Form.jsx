@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 
 function Form({ car }) {
     const { user, isLoaded } = useUser();
+    if (!isLoaded) {
+        return null;
+    }
     const { setShowToastMsg } = useContext(BookCreatedFlagContext);
 
     const [storeLocation, setStoreLocation] = useState([]);
