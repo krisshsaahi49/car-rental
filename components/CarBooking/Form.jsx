@@ -6,11 +6,9 @@ import PropTypes from 'prop-types';
 
 function Form({ car }) {
     const { user, isLoaded } = useUser();
-    if (!isLoaded) {
-        return null;
-    }
+    const { setShowToastMsg } = useContext(BookCreatedFlagContext);
+
     const [storeLocation, setStoreLocation] = useState([]);
-    const { showToastMsg, setShowToastMsg } = useContext(BookCreatedFlagContext)
     const [formValue, setFormValue] = useState({
         location: '',
         pickUpDate: '',
@@ -20,12 +18,14 @@ function Form({ car }) {
         contactNumber: '',
         userName: user?.username || '',
         carId: ""
-    })
+    });
 
     const today = new Date();
+
     useEffect(() => {
+        if (!isLoaded) return;
         getStoreLocation_();
-    }, []);
+    }, [isLoaded]);
 
     useEffect(() => {
         if (car) {
@@ -34,7 +34,8 @@ function Form({ car }) {
                 carId: car.id
             });
         }
-    }, [car])
+    }, [car]);
+
     const getStoreLocation_ = async () => {
         const resp = await getStoreLocations();
         setStoreLocation(resp?.storesLocations);
@@ -46,7 +47,7 @@ function Form({ car }) {
             [event.target.name]: event.target.value
         });
     }
-
+    
     const handleSubmit = async () => {
         console.log(formValue);
         const resp = await createBooking(formValue);
@@ -60,8 +61,7 @@ function Form({ car }) {
         <div>
             <div className="flex flex-col w-full mb-5">
                 <label className="text-gray-400" htmlFor="location">PickUp Location</label>
-                <select className="select 
-        select-bordered w-full max-w-lg"
+                <select className="select select-bordered w-full max-w-lg"
                     name="location"
                     onChange={handleChange}
                 >
@@ -133,17 +133,16 @@ function Form({ car }) {
             <div className="modal-action">
                 <button className="btn">Close</button>
                 <button
-                    className="btn bg-blue-500 text-white
-hover:bg-blue-800"
+                    className="btn bg-blue-500 text-white hover:bg-blue-800"
                     onClick={handleSubmit}
                 >
                     Save
                 </button>
             </div>
-
         </div>
     );
 }
+
 Form.propTypes = {
     car: PropTypes.object.isRequired
 };
