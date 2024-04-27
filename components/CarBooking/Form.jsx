@@ -2,9 +2,10 @@ import { BookCreatedFlagContext } from "@/context/BookCreatedFlagContext";
 import { createBooking, getStoreLocations } from "@/api";
 import { useUser } from "@clerk/nextjs";
 import React, { useContext, useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 
 function Form({ car }) {
-    const { isSignedIn, user, isLoaded } = useUser();
+    const { user, isLoaded } = useUser();
     if (!isLoaded) {
         return null;
     }
@@ -143,5 +144,8 @@ hover:bg-blue-800"
         </div>
     );
 }
+Form.propTypes = {
+    car: PropTypes.object.isRequired 
+};
 
 export default Form;
