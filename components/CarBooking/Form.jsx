@@ -18,7 +18,7 @@ function Form({ car }) {
         pickUpTime: '',
         dropOffTime: '',
         contactNumber: '',
-        userName: user?.username||'',
+        userName: user?.username || '',
         carId: ""
     })
 
@@ -59,7 +59,7 @@ function Form({ car }) {
     return (
         <div>
             <div className="flex flex-col w-full mb-5">
-                <label className="text-gray-400">PickUp Location</label>
+                <label className="text-gray-400" htmlFor="location">PickUp Location</label>
                 <select className="select 
         select-bordered w-full max-w-lg"
                     name="location"
@@ -69,14 +69,14 @@ function Form({ car }) {
                         PickUp Location?
                     </option>
                     {storeLocation &&
-                        storeLocation.map((loc, index) => (
-                            <option key={index}>{loc?.address}</option>
+                        storeLocation.map((loc) => (
+                            <option key={loc.id}>{loc.address}</option>
                         ))}
                 </select>
             </div>
             <div className="flex flec-col gap-5 mb-5">
                 <div className="flex flex-col w-full">
-                    <label className="text-gray-400">Pick Up Date</label>
+                    <label className="text-gray-400" htmlFor="pickUpDate">Pick Up Date</label>
                     <input
                         type="date"
                         min={today}
@@ -87,7 +87,7 @@ function Form({ car }) {
                     />
                 </div>
                 <div className="flex flex-col w-full">
-                    <label className="text-gray-400">Drop Off Date</label>
+                    <label className="text-gray-400" htmlFor="dropOffDate">Drop Off Date</label>
                     <input
                         type="date"
                         onChange={handleChange}
@@ -99,7 +99,7 @@ function Form({ car }) {
             </div>
             <div className="flex gap-5 ">
                 <div className="flex flex-col w-full mb-5">
-                    <label className="text-gray-400">Pick Up Time</label>
+                    <label className="text-gray-400" htmlFor="pickUpTime">Pick Up Time</label>
                     <input
                         type="time"
                         onChange={handleChange}
@@ -109,7 +109,7 @@ function Form({ car }) {
                     />
                 </div>
                 <div className="flex flex-col w-full mb-5">
-                    <label className="text-gray-400">Drop Off Time</label>
+                    <label className="text-gray-400" htmlFor="dropOffTime">Drop Off Time</label>
                     <input
                         type="time"
                         name="dropOffTime"
@@ -121,7 +121,7 @@ function Form({ car }) {
             </div>
 
             <div className="flex flex-col w-full mb-5">
-                <label className="text-gray-400">Contact Number</label>
+                <label className="text-gray-400" htmlFor="contactNumber">Contact Number</label>
                 <input
                     type="text"
                     placeholder="Type here"
@@ -145,7 +145,7 @@ hover:bg-blue-800"
     );
 }
 Form.propTypes = {
-    car: PropTypes.object.isRequired 
+    car: PropTypes.object.isRequired
 };
 
 export default Form;
