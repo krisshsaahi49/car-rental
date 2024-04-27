@@ -2,6 +2,7 @@ import { BookCreatedFlagContext } from "@/context/BookCreatedFlagContext";
 import { createBooking, getStoreLocations } from "@/api";
 import { useUser } from "@clerk/nextjs";
 import React, { useContext, useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 
 function Form({ car }) {
     const { user, isLoaded } = useUser();

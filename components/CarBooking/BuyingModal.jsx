@@ -1,5 +1,6 @@
 import CarCard from '../Home/CarCard'
 import BuyingForm from './BuyingForm'
+import PropTypes from 'prop-types';
 
 function BuyingModal({car}) {
 
