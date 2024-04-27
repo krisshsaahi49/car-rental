@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 function ToastMsg({msg}) {
   return (
@@ -10,6 +11,10 @@ function ToastMsg({msg}) {
     </div>
     </div>
   )
+}
+
+ToastMsg.propTypes = {
+  msg: PropTypes.object.isRequired
 }
 
 export default ToastMsg
