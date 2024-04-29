@@ -4,7 +4,7 @@ const MASTER_URL = "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clvf7ei
 export const getCarsList = async () => {
   const query = gql`
     query CarLists {
-        carLists {
+        carLists(first : 100) {
           carAvg
           createdAt
           id
