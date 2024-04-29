@@ -24,7 +24,7 @@ export default function Home() {
     setCarsOrgList(result?.carLists)
   }
 
-  const filterCarList = (brand: String) => {
+  const filterCarList = (brand: string) => {
     const filterList = carsOrgList.filter((item: any) => item.carBrand == brand);
     setCarsList(filterList);
   }
@@ -48,8 +48,8 @@ export default function Home() {
         <Hero />
         {/* <SearchInput /> */}
         <CarsFiltersOption carsList={carsOrgList}
-          orderCarList={(value: String) => orderCarList(value)}
-          setBrand={(value: String) => filterCarList(value)} />
+          orderCarList={(value: string) => orderCarList(value)}
+          setBrand={(value: string) => filterCarList(value)} />
         <CarsList carsList={carsList} />
         <SellCarsPage />
         <Contact />
