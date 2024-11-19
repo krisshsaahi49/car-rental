@@ -26,7 +26,7 @@ export default function RootLayout({
           </SignedIn>
           <SignedOut>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-              <SignIn />
+              <SignIn routing='hash' />
             </div>
           </SignedOut>
         </body>
